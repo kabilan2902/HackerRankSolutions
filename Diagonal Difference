@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    int n;
+    int leftdiag=0;
+    int rightdiag=0;
+    int sum=0;
+    scanf("%d", &n);
+    int a[n][n];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            scanf("%d", &a[i][j]);
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(i==j){
+                leftdiag= leftdiag+a[i][j];
+            }
+        }
+
+    }
+    int j=n-1;
+    for(int i=0;i<n;i++){
+        if(j>=0){
+            rightdiag=rightdiag+a[i][j];
+            j=j-1;
+        }          
+    }
+    sum= leftdiag - rightdiag;
+    if(sum<0){
+        sum=sum*(-1);
+    }
+    printf("%d", sum);
+}
